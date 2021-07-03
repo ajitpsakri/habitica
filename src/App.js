@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
 
 function App() {
+  let temp = '';
+  const [value,setValue] = useState('')
+  const enterHabit = (e)=>{
+    temp = e.target.value;
+  }
+  const addHabit = ()=>{
+    setValue(temp)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>code</h1>
+     <input  onChange={enterHabit}type="text" id="Habit-name" name="Habit-name" placeholder="eg: Code for 1 hr"/>
+     <button onClick={addHabit} type="button" className="btn btn-warning btn-sm">+</button><br/>
+     {value}
     </div>
   );
 }
 
 export default App;
+/*
+1. Enter text or don't 
+2. Press + 
+3. A tab which has - and + at the end should pop up of the entered text
+4. Swipe at any direction should delete the habit 
+5. I should have a option to undo deleted habits
+*/
+
+
+
+
